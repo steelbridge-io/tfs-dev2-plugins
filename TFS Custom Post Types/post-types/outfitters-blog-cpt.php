@@ -3,10 +3,10 @@
  * Outfitetrs Blog Custom Post Type
  */
 add_theme_support('post-thumbnails');
-add_post_type_support( 'outfitters_blog', 'thumbnail' );
+add_post_type_support( 'flyfishing-news', 'thumbnail' );
 
 // Register Custom Post Type
-function outfitters_blog() {
+function california_flyfishing_news() {
   
   $labels = array(
     'name'                  => _x( 'Outfitters Posts', 'Post Type General Name', 'outfitter_domain' ),
@@ -57,20 +57,20 @@ function outfitters_blog() {
     'capability_type'       => 'post',
     'show_in_rest'          => true,
   );
-  register_post_type( 'outfitters_blog', $args );
+  register_post_type( 'flyfishing-news', $args );
   
 }
-add_action( 'init', 'outfitters_blog', 0 );
+add_action( 'init', 'california_flyfishing_news', 0 );
 
 // Custom Taxonomy
 add_action('init', 'custom_outfitterblog_tax');
 function custom_outfitterblog_tax() {
   register_taxonomy(
-    'outfitterblog-category',
-    'outfitters_blog',
+    'outfitters',
+    'flyfishing-news',
     array(
       'hierarchical'	=> true,
-      'label'			=> __('Outfitters Blog Categories'),
+      'label'			=> __('Categories'),
       'query_var'		=> true,
       'rewrite'		=> true,
       'show_in_rest'  => true,
