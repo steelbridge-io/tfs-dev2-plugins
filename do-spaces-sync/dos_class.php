@@ -74,7 +74,7 @@ class DOS {
 
   private function register_filters () {
 
-    add_filter('wp_update_attachment_metadata', array($this, 'filter_wp_update_attachment_metadata'), 20, 1);
+    add_filter('wp_generate_attachment_metadata', array($this, 'filter_wp_generate_attachment_metadata'), 20, 1);
     // add_filter('wp_save_image_editor_file', array($this,'filter_wp_save_image_editor_file'), 10, 5 );
     add_filter('wp_unique_filename', array($this, 'filter_wp_unique_filename') );
     
@@ -126,7 +126,7 @@ class DOS {
   }
 
   // FILTERS
-  public function filter_wp_update_attachment_metadata ($metadata) {
+  public function filter_wp_generate_attachment_metadata ($metadata) {
 
     $paths = array();
     $upload_dir = wp_upload_dir();
@@ -183,10 +183,11 @@ class DOS {
     $number = 1;
     $new_filename = $filename;
     $fileparts = pathinfo($filename);
-
-    while ( $filesystem->has( $subdir . "/$new_filename" ) ) {
+    $cdnPath = rtrim($this->storage_path,'/') . '/' . ltrim($subdir,'/') . '/' . $new_filename;
+    while ( $filesystem->has( $cdnPath ) ) {
       $new_filename = $fileparts['filename'] . "-$number." . $fileparts['extension'];
       $number = (int) $number + 1;
+      $cdnPath = rtrim($this->storage_path,'/') . '/' . ltrim($subdir,'/') . '/' . $new_filename;
     }
 
     return $new_filename;
@@ -227,7 +228,10 @@ class DOS {
       if ( isset($metadata['file']) ) {
 
         $path = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . $metadata['file'];
-        array_push($paths, $path);
+
+        if ( !in_array($path, $paths) ) {
+          array_push($paths, $path);
+        }
 
         // set basepath for other sizes
         $file_info = pathinfo($path);
@@ -267,7 +271,15 @@ class DOS {
 
   // METHODS
   public function test_connection () {
-
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $postData = $_POST;
+        $keys = ['key' => 'dos_key','secret' => 'dos_secret','endpoint' => 'dos_endpoint','container' => 'dos_container'];
+        foreach ($keys as $prop => $key) {
+            if(isset($postData[$key])){
+                $this->$prop = $postData[$key];
+            }
+        }
+    }
     try {
     
       $filesystem = DOS_Filesystem::get_instance($this->key, $this->secret, $this->container, $this->endpoint);
