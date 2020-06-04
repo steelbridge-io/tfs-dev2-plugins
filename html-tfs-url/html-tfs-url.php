@@ -42,7 +42,7 @@ function tfshtml_active() {
 		$wp_rewrite->page_structure = $wp_rewrite->page_structure . '.html';
  }
   $wp_rewrite->flush_rules();
-}	
+}
 	function tfshtml_deactive() {
 		global $wp_rewrite;
 		$wp_rewrite->page_structure = str_replace(".html","",$wp_rewrite->page_structure);
@@ -111,7 +111,7 @@ function custom_permalinks_term_link($permalink, $term) {
  */
 function custom_permalinks_redirect() {
   // Get request URI, strip parameters
-  $url = parse_url(get_bloginfo('url')); 
+  $url = parse_url(get_bloginfo('url'));
   $url = isset($url['path']) ? $url['path'] : '';
   $request = ltrim(substr($_SERVER['REQUEST_URI'], strlen($url)),'/');
   if ( ($pos=strpos($request, "?")) ) $request = substr($request, 0, $pos);
@@ -135,7 +135,7 @@ function custom_permalinks_redirect() {
                         custom_permalinks_original_category_link($theTerm->term_id));
   }
 
-  if ( $custom_permalink && 
+  if ( $custom_permalink &&
       (substr($request, 0, strlen($custom_permalink)) != $custom_permalink ||
        $request == $custom_permalink."/" ) ) {
     // Request doesn't match permalink - redirect
@@ -153,7 +153,7 @@ function custom_permalinks_redirect() {
     
     wp_redirect( home_url()."/".$url, 301 );
     exit();
-  } 
+  }
 }
 
 /**
@@ -179,7 +179,7 @@ function custom_permalinks_request($query) {
 
   if ( !$request ) return $query;
   
-  $request = custom_permalinks_check_conflicts($request); 
+  $request = custom_permalinks_check_conflicts($request);
   $request_noslash = preg_replace('@/+@','/', trim($request, '/'));
 
   // Queries are now WP3.9 compatible (by Steve from Sowmedia.nl)
@@ -203,7 +203,7 @@ function custom_permalinks_request($query) {
     // A post matches our request
     
     // Preserve this url for later if it's the same as the permalink (no extra stuff)
-    if ( $request_noslash == trim($posts[0]->meta_value,'/') ) 
+    if ( $request_noslash == trim($posts[0]->meta_value,'/') )
       $_CPRegisteredURL = $request;
     
     if ( $posts[0]->post_status == 'draft' ) {
@@ -214,8 +214,8 @@ function custom_permalinks_request($query) {
       }
     } else {
       $originalUrl =  preg_replace( '@/+@', '/', str_replace( trim( strtolower($posts[0]->meta_value),'/' ),
-                    ( $posts[0]->post_type == 'page' ? 
-                        custom_permalinks_original_page_link($posts[0]->ID) 
+                    ( $posts[0]->post_type == 'page' ?
+                        custom_permalinks_original_page_link($posts[0]->ID)
                         : custom_permalinks_original_post_link($posts[0]->ID) ),
                      strtolower($request_noslash) ) );
     }
@@ -232,7 +232,7 @@ function custom_permalinks_request($query) {
         $term = $table[$permalink];
         
         // Preserve this url for later if it's the same as the permalink (no extra stuff)
-        if ( $request_noslash == trim($permalink,'/') ) 
+        if ( $request_noslash == trim($permalink,'/') )
           $_CPRegisteredURL = $request;
         
         
@@ -248,7 +248,7 @@ function custom_permalinks_request($query) {
       }
     }
   }
-    
+  
   if ( $originalUrl !== NULL ) {
     $originalUrl = str_replace('//', '/', $originalUrl);
     
@@ -293,7 +293,7 @@ function custom_permalinks_request($query) {
  * @package TFSCustomPermalinks
  * @since 0.1
  */
-function custom_permalinks_trailingslash($string, $type) {     
+function custom_permalinks_trailingslash($string, $type) {
   global $_CPRegisteredURL;
 
   remove_filter( 'user_trailingslashit', 'custom_permalinks_trailingslash', 10, 2 );
@@ -414,7 +414,7 @@ function custom_permalinks_term_options($object) {
     $permalink = custom_permalinks_permalink_for_term($object->term_id);
   
     if ( $object->term_id ) {
-      $originalPermalink = ($object->taxonomy == 'post_tag' ? 
+      $originalPermalink = ($object->taxonomy == 'post_tag' ?
                     custom_permalinks_original_tag_link($object->term_id) :
                     custom_permalinks_original_category_link($object->term_id) );
     }
@@ -454,7 +454,7 @@ function custom_permalinks_form($permalink, $original="", $renderContainers=true
     <td>
   <?php endif; ?>
   
-  <?php 
+  <?php
     if ($permalink == '') {
       $original = custom_permalinks_check_conflicts($original);
     }
@@ -508,7 +508,7 @@ function custom_permalinks_save_tag($id) {
   $newPermalink = ltrim(stripcslashes($_REQUEST['custom_permalink']),"/");
   
   if ( $newPermalink == custom_permalinks_original_tag_link($id) )
-    $newPermalink = ''; 
+    $newPermalink = '';
   
   $term = get_term($id, 'post_tag');
   custom_permalinks_save_term($term, str_replace('%2F', '/', urlencode($newPermalink)));
@@ -525,7 +525,7 @@ function custom_permalinks_save_category($id) {
   $newPermalink = ltrim(stripcslashes($_REQUEST['custom_permalink']),"/");
   
   if ( $newPermalink == custom_permalinks_original_category_link($id) )
-    $newPermalink = ''; 
+    $newPermalink = '';
   
   $term = get_term($id, 'category');
   custom_permalinks_save_term($term, str_replace('%2F', '/', urlencode($newPermalink)));
@@ -543,7 +543,7 @@ function custom_permalinks_save_term($term, $permalink) {
   $table = get_option('custom_permalink_table');
   if ( $permalink )
     $table[$permalink] = array(
-      'id' => $term->term_id, 
+      'id' => $term->term_id,
       'kind' => ($term->taxonomy == 'category' ? 'category' : 'tag'),
       'slug' => $term->slug);
 
@@ -558,7 +558,7 @@ function custom_permalinks_save_term($term, $permalink) {
  */
 function custom_permalinks_delete_permalink( $id ){
   global $wpdb;
-  // Queries are now WP3.9 compatible 
+  // Queries are now WP3.9 compatible
   $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE `meta_key` = 'custom_permalink' AND `post_id` = %d",$id));
 }
 
@@ -689,7 +689,7 @@ function custom_permalinks_admin_rows() {
   
   // List posts/pages
   global $wpdb;
-  $query = "SELECT $wpdb->posts.* FROM $wpdb->posts LEFT JOIN $wpdb->postmeta ON ($wpdb->posts.ID = $wpdb->postmeta.post_id) WHERE 
+  $query = "SELECT $wpdb->posts.* FROM $wpdb->posts LEFT JOIN $wpdb->postmeta ON ($wpdb->posts.ID = $wpdb->postmeta.post_id) WHERE
       $wpdb->postmeta.meta_key = 'custom_permalink' AND $wpdb->postmeta.meta_value != '';";
   $posts = $wpdb->get_results($query);
   foreach ( $posts as $post ) {
@@ -768,7 +768,7 @@ function custom_permalinks_original_tag_link($tag_id) {
  * @since 0.1
  */
 function custom_permalinks_original_category_link($category_id) {
-  remove_filter( 'category_link', 'custom_permalinks_term_link', 10, 2 );
+  remove_filter( 'term_link', 'custom_permalinks_term_link', 10, 2 );
   remove_filter( 'user_trailingslashit', 'custom_permalinks_trailingslash', 10, 2 );
   $originalPermalink = ltrim(str_replace(home_url(), '', get_category_link($category_id)), '/');
   add_filter( 'user_trailingslashit', 'custom_permalinks_trailingslash', 10, 2 );
@@ -814,7 +814,7 @@ function custom_permalinks_setup_admin_head() {
 }
 
 /**
- * Check Conflicts and resolve it (e.g: Polylang) 
+ * Check Conflicts and resolve it (e.g: Polylang)
  *
  * @package TFSCustomPermalinks
  * @since 0.9

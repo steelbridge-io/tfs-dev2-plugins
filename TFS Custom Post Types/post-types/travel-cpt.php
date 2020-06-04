@@ -3,7 +3,7 @@
  * Traval Custom Post Type
  */
 add_theme_support('post-thumbnails');
-add_post_type_support( 'travel_cpt', 'thumbnail' );    
+add_post_type_support( 'travel_cpt', 'thumbnail' );
 
 // Register Custom Post Type
 function travel_cpt() {
@@ -51,11 +51,12 @@ function travel_cpt() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => true,		
+		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
-        'show_in_rest'          => true
+    'show_in_rest'          => true,
+    'rewrite' => array('slug' => 'travel', 'with_front' => false ),
 	);
 	register_post_type( 'travel_cpt', $args );
 
@@ -73,7 +74,7 @@ function custom_travel_tax() {
 			'label'			=> __('Travel Categories'),
 			'query_var'		=> true,
 			'rewrite'		=> true,
-            'show_in_rest'  => true
-		)	
+      'show_in_rest'  => true
+		)
 	);
-} 
+}

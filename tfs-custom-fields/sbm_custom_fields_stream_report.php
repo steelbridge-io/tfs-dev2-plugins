@@ -165,7 +165,7 @@
             'sbm-textdomain' )?></option>';
 
         <option value="FallRiver" <?php if ( isset ( $sbm_stored_meta['meta-two-select'] ) )
-          selected($sbm_stored_meta['meta-two-select'][0], 'FallRiver' ); ?>><?php _e( 'Fall 
+          selected($sbm_stored_meta['meta-two-select'][0], 'FallRiver' ); ?>><?php _e( 'Fall
           River', 'sbm-textdomain' )?></option>';
 
         <option value="GoldRiver" <?php if ( isset ( $sbm_stored_meta['meta-two-select'] ) )
@@ -261,7 +261,7 @@
           selected( $sbm_stored_meta['meta-three-select'][0], 'ClearCreek' ); ?>><?php _e( 'Clear Creek Ranch',
             'sbm-textdomain' )?></option>';
 
-        <option value="FallRiver" <?php if ( isset ( $sbm_stored_meta['meta-three-select'] ) ) selected($sbm_stored_meta['meta-three-select'][0], 'FallRiver' ); ?>><?php _e( 'Fall 
+        <option value="FallRiver" <?php if ( isset ( $sbm_stored_meta['meta-three-select'] ) ) selected($sbm_stored_meta['meta-three-select'][0], 'FallRiver' ); ?>><?php _e( 'Fall
           River', 'sbm-textdomain' )?></option>';
 
         <option value="GoldRiver" <?php if ( isset ( $sbm_stored_meta['meta-three-select'] ) )

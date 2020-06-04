@@ -3,7 +3,7 @@
  * Traval Blog Custom Post Type
  */
 add_theme_support('post-thumbnails');
-add_post_type_support( 'travel_blog', 'thumbnail' );
+add_post_type_support( 'travel-blog', 'thumbnail' );
 
 // Register Custom Post Type
 function travel_blog() {
@@ -57,7 +57,7 @@ function travel_blog() {
         'capability_type'       => 'post',
         'show_in_rest'          => true,
     );
-    register_post_type( 'travel_blog', $args );
+    register_post_type( 'travel-blog', $args );
 
 }
 add_action( 'init', 'travel_blog', 0 );
@@ -67,7 +67,7 @@ add_action('init', 'custom_travelblog_tax');
 function custom_travelblog_tax() {
     register_taxonomy(
         'travelblog-category',
-        'travel_blog',
+        'travel-blog',
         array(
             'hierarchical'	=> true,
             'label'			=> __('Travel Blog Categories'),

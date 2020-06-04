@@ -1,0 +1,14 @@
+eea-multi-event-registration/
+event-espresso-core-reg/
+gravityforms/
+regenerate-thumbnails/
+what-the-file/
+wp-multi-network/
+classic-editor/
+gravityformsgutenberg/
+wp-hummingbird/
+ultimate-branding/
+wpmudev-updates/
+forminator/
+**/node_modules
+package-lock.json
