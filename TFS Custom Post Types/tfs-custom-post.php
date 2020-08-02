@@ -20,6 +20,7 @@ include_once('post-types/travel-blog-cpt.php');
 include_once('post-types/schools-cpt.php');
 include_once('post-types/fish-camp-cpt.php');
 include_once('post-types/outfitters-blog-cpt.php');
+include_once('post-types/lower-48-travel.php');
 
 add_action( 'after_switch_theme', 'tfspw_rewrite_flush' );
 function tfspw_rewrite_flush()

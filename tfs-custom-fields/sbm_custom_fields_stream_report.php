@@ -1703,7 +1703,7 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#antelopecreek" aria-controls="antelopecreek" role="tab" data-toggle="tab">Antelope Creek Lodge</a></li>
-          <li role="presentation"><a href="#baileycreek" aria-controls="baileycreek" role="tab" data-toggle="tab">Bailey Creek Lodge</a></li>
+          <!-- <li role="presentation"><a href="#baileycreek" aria-controls="baileycreek" role="tab" data-toggle="tab">Bailey Creek Lodge</a></li> -->
           <li role="presentation"><a href="#battlecreek" aria-controls="battlecreek" role="tab" data-toggle="tab">Battle Creek Lodge</a></li>
           <li role="presentation"><a href="#bollibokka" aria-controls="bollibokka" role="tab" data-toggle="tab">Bollibokka</a></li>
           <li role="presentation"><a href="#circle7" aria-controls="circle7" role="tab" data-toggle="tab">Circle 7 Guest Ranch</a></li>
@@ -1712,7 +1712,7 @@
           <li role="presentation"><a href="#hatcreekranch" aria-controls="hatcreekranch" role="tab" data-toggle="tab">Hat Creek Ranch</a></li>
           <li role="presentation"><a href="#luklake" aria-controls="luklake" role="tab" data-toggle="tab">Luk Lake</a></li>
           <li role="presentation"><a href="#oasissprings" aria-controls="oasissprings" role="tab" data-toggle="tab">Oasis Springs</a></li>
-          <li role="presentation"><a href="#pedrottiponds" aria-controls="pedrottiponds" role="tab" data-toggle="tab">Pedrotti Ponds</a></li>
+          <!-- <li role="presentation"><a href="#pedrottiponds" aria-controls="pedrottiponds" role="tab" data-toggle="tab">Pedrotti Ponds</a></li> -->
           <li role="presentation"><a href="#rockcreek" aria-controls="rockcreek" role="tab" data-toggle="tab">Rock Creek Lake</a></li>
           <!--<li role="presentation"><a href="#spinnerfall" aria-controls="spinnerfall" role="tab" data-toggle="tab">Spinner Fall Lodge</a></li>-->
           <li role="presentation"><a href="#sugarcreek" aria-controls="surgarcreek" role="tab" data-toggle="tab">Sugar Creek Ranch</a></li>
@@ -1796,78 +1796,7 @@
 
             <!-- ====== BAILEY CREEK LODGE ====== -->
 
-            <div role="tabpanel" class="tab-pane fade" id="baileycreek">
-
-              <h3><?php echo ' Bailey Creek Lodge '  ?></h3>
-
-              <p><!-- Bailey Creek Lodge Updated -->
-
-                <strong><label for="baileycreek-updated" class="sbm-row-title"><?php _e( 'Bailey Creek Lodge Updated', 'sbm-textdomain' )?></label></strong>
-
-                <input style="width: 100%;" type="text" name="baileycreek-updated" id="baileycreek-updated" value="<?php if ( isset ( $sbm_stored_meta['baileycreek-updated'] ) ) echo $sbm_stored_meta['baileycreek-updated'][0]; ?>" />
-
-              </p>
-
-              <p><!-- Bailey Creek Lodge Report -->
-
-                <strong><label for="baileycreek-report" class="sbm-row-title"><?php _e( 'Bailey Creek Lodge Report', 'sbm-textdomain' )?></label></strong>
-
-                <textarea style="width: 100%;" rows="4" name="baileycreek-report" id="baileycreek-report"><?php if ( isset ( $sbm_stored_meta['baileycreek-report'] ) ) echo $sbm_stored_meta['baileycreek-report'][0]; ?></textarea>
-              </p>
-
-              <div class="mt-1618 mb-1618"><!-- Bailey Creek Lodge Hot Flies -->
-
-                <strong><label for="baileycreek-hot-flies" class="sbm-row-title"><?php _e( 'Bailey Creek Lodge Hot Flies', 'sbm-textdomain' )?></label></strong>
-                <p>To create a link: <?php echo esc_html('<a href="www.hotflylink.com" title="A link to a hot fly" target="_blank">The name and size of the hot fly. ex: #16 Hot Fly</a>'); ?></p>
-
-                <textarea style="width: 100%;" name="baileycreek-hot-flies" id="baileycreek-hot-flies"><?php if ( isset ( $sbm_stored_meta['baileycreek-hot-flies'] ) ) echo $sbm_stored_meta['baileycreek-hot-flies'][0]; ?></textarea>
-
-              </div>
-
-              <p><!-- Bailey Creek Lodge Rating -->
-                <span class="sbm-row-title"><?php _e( '<strong>How is the fishing?</strong> ', 'sbm-textdomain' )?></span>
-              <div class="sbm-row-content">
-
-                <label for="baileycreek-closed-message">
-                  <?php _e( 'Closed Message&nbsp;', 'sbm-textdomain' )?>
-                  <input type="text" style="width: 50%;" name="baileycreek-closed-message" id="baileycreek-closed-message" value="<?php if ( isset ( $sbm_stored_meta['baileycreek-closed-message'] ) ) echo $sbm_stored_meta['baileycreek-closed-message'][0]; ?>" />
-                </label>
-
-              </div>
-              <div class="sbm-row-content">
-
-                <label for="baileycreek-closed-checkbox">
-                  <input type="checkbox" name="baileycreek-closed-checkbox" id="baileycreek-closed-checkbox" value="-danger" <?php if ( isset ( $sbm_stored_meta['baileycreek-closed-checkbox'] ) ) checked( $sbm_stored_meta['baileycreek-closed-checkbox'][0], '-danger' ); ?> />
-                  <?php _e( 'Closed&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="baileycreek-checkbox-poor">
-                  <input type="checkbox" name="baileycreek-checkbox-poor" id="baileycreek-checkbox-poor" value="-danger" <?php if ( isset ( $sbm_stored_meta['baileycreek-checkbox-poor'] ) ) checked( $sbm_stored_meta['baileycreek-checkbox-poor'][0], '-danger' ); ?> />
-                  <?php _e( 'Poor&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="baileycreek-checkbox-fair">
-                  <input type="checkbox" name="baileycreek-checkbox-fair" id="baileycreek-checkbox-fair" value="-danger" <?php if ( isset ( $sbm_stored_meta['baileycreek-checkbox-fair'] ) ) checked( $sbm_stored_meta['baileycreek-checkbox-fair'][0], '-danger' ); ?> />
-                  <?php _e( 'Fair&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="baileycreek-checkbox-fairgood">
-                  <input type="checkbox" name="baileycreek-checkbox-fairgood" id="baileycreek-checkbox-fairgood" value="-danger" <?php if ( isset ( $sbm_stored_meta['baileycreek-checkbox-fairgood'] ) ) checked( $sbm_stored_meta['baileycreek-checkbox-fairgood'][0], '-danger' ); ?> />
-                  <?php _e( 'Fair to Good&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="baileycreek-checkbox-good">
-                  <input type="checkbox" name="baileycreek-checkbox-good" id="baileycreek-checkbox-good" value="-danger" <?php if ( isset ( $sbm_stored_meta['baileycreek-checkbox-good'] ) ) checked( $sbm_stored_meta['baileycreek-checkbox-good'][0], '-danger' ); ?> />
-                  <?php _e( 'Good&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="baileycreek-checkbox-great">
-                  <input type="checkbox" name="baileycreek-checkbox-great" id="baileycreek-checkbox-great" value="-danger" <?php if ( isset ( $sbm_stored_meta['baileycreek-checkbox-great'] ) ) checked( $sbm_stored_meta['baileycreek-checkbox-great'][0], '-danger' ); ?> />
-                  <?php _e( 'Great', 'sbm-textdomain' )?>
-                </label>
-
-              </div>
-            </div> <!-- /.tab-pane bailey creek -->
+             <!-- /.tab-pane bailey creek -->
 
             <!-- ====== BATTLE CREEK ====== -->
 
@@ -1942,7 +1871,7 @@
                 </label>
 
               </div>
-            </div> <!-- /.tab-pane bailey creek -->
+            </div> <!-- /.tab-pane battle creek -->
 
             <!-- ====== BOLLIBOKKA ====== -->
 
@@ -2475,79 +2404,7 @@
 
             <!-- ====== PEDROTTI PONDS ====== -->
 
-            <div role="tabpanel" class="tab-pane fade" id="pedrottiponds">
-
-              <h3><?php echo ' Pedrotti Ponds ' ?></h3>
-
-              <p><!-- Pedrotti Ponds Updated -->
-
-                <strong><label for="pedrottiponds-updated" class="sbm-row-title"><?php _e( 'Pedrotti Ponds Updated', 'sbm-textdomain' )?></label></strong>
-
-                <input style="width: 100%;" type="text" name="pedrottiponds-updated" id="pedrottiponds-updated" value="<?php if ( isset ( $sbm_stored_meta['pedrottiponds-updated'] ) ) echo $sbm_stored_meta['pedrottiponds-updated'][0]; ?>" />
-
-              </p>
-
-              <p><!-- Pedrotti Ponds Report -->
-
-                <strong><label for="pedrottiponds-report" class="sbm-row-title"><?php _e( 'Pedrotti Ponds Report', 'sbm-textdomain' )?></label></strong>
-
-                <textarea style="width: 100%;" rows="4" name="pedrottiponds-report" id="pedrottiponds-report"><?php if ( isset ( $sbm_stored_meta['pedrottiponds-report'] ) ) echo $sbm_stored_meta['pedrottiponds-report'][0]; ?></textarea>
-              </p>
-
-              <div class="mt-1618 mb-1618"><!-- Pedrotti Ponds Hot Flies -->
-
-                <strong><label for="pedrottiponds-hot-flies" class="sbm-row-title"><?php _e( 'Pedrotti Ponds Hot Flies', 'sbm-textdomain' )?></label></strong>
-                <p>To create a link: <?php echo esc_html('<a href="www.hotflylink.com" title="A link to a hot fly" target="_blank">The name and size of the hot fly. ex: #16 Hot Fly</a>'); ?></p>
-
-                <textarea style="width: 100%;" name="pedrottiponds-hot-flies" id="pedrottiponds-hot-flies"><?php if ( isset ( $sbm_stored_meta['pedrottiponds-hot-flies'] ) ) echo $sbm_stored_meta['pedrottiponds-hot-flies'][0]; ?></textarea>
-
-              </div>
-
-              <!-- Pedrotti Ponds Rating -->
-              <p><span class="sbm-row-title"><?php _e( '<strong>How is the fishing?</strong> ', 'sbm-textdomain' )?></span></p>
-              <div class="sbm-row-content">
-
-                <label for="pedrottiponds-closed-message">
-                  <?php _e( 'Closed Message&nbsp;', 'sbm-textdomain' )?>
-                  <input type="text" style="width: 50%;" name="pedrottiponds-closed-message" id="pedrottiponds-closed-message" value="<?php if ( isset ( $sbm_stored_meta['pedrottiponds-closed-message'] ) ) echo $sbm_stored_meta['pedrottiponds-closed-message'][0]; ?>" />
-                </label>
-
-              </div>
-              <div class="sbm-row-content">
-
-                <label for="pedrottiponds-closed-checkbox">
-                  <input type="checkbox" name="pedrottiponds-closed-checkbox" id="pedrottiponds-closed-checkbox" value="-danger" <?php if ( isset ( $sbm_stored_meta['pedrottiponds-closed-checkbox'] ) ) checked( $sbm_stored_meta['pedrottiponds-closed-checkbox'][0], '-danger' ); ?> />
-                  <?php _e( 'Closed&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="pedrottiponds-checkbox-poor">
-                  <input type="checkbox" name="pedrottiponds-checkbox-poor" id="pedrottiponds-checkbox-poor" value="-danger" <?php if ( isset ( $sbm_stored_meta['pedrottiponds-checkbox-poor'] ) ) checked( $sbm_stored_meta['pedrottiponds-checkbox-poor'][0], '-danger' ); ?> />
-                  <?php _e( 'Poor&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="pedrottiponds-checkbox-fair">
-                  <input type="checkbox" name="pedrottiponds-checkbox-fair" id="pedrottiponds-checkbox-fair" value="-danger" <?php if ( isset ( $sbm_stored_meta['pedrottiponds-checkbox-fair'] ) ) checked( $sbm_stored_meta['pedrottiponds-checkbox-fair'][0], '-danger' ); ?> />
-                  <?php _e( 'Fair&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="pedrottiponds-checkbox-fairgood">
-                  <input type="checkbox" name="pedrottiponds-checkbox-fairgood" id="pedrottiponds-checkbox-fairgood" value="-danger" <?php if ( isset ( $sbm_stored_meta['pedrottiponds-checkbox-fairgood'] ) ) checked( $sbm_stored_meta['pedrottiponds-checkbox-fairgood'][0], '-danger' ); ?> />
-                  <?php _e( 'Fair to Good&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="pedrottiponds-checkbox-good">
-                  <input type="checkbox" name="pedrottiponds-checkbox-good" id="pedrottiponds-checkbox-good" value="-danger" <?php if ( isset ( $sbm_stored_meta['pedrottiponds-checkbox-good'] ) ) checked( $sbm_stored_meta['pedrottiponds-checkbox-good'][0], '-danger' ); ?> />
-                  <?php _e( 'Good&nbsp;', 'sbm-textdomain' )?>
-                </label>
-
-                <label for="pedrottiponds-checkbox-great">
-                  <input type="checkbox" name="pedrottiponds-checkbox-great" id="pedrottiponds-checkbox-great" value="-danger" <?php if ( isset ( $sbm_stored_meta['pedrottiponds-checkbox-great'] ) ) checked( $sbm_stored_meta['pedrottiponds-checkbox-great'][0], '-danger' ); ?> />
-                  <?php _e( 'Great', 'sbm-textdomain' )?>
-                </label>
-
-              </div>
-
-            </div> <!-- /.tab-pane pedrotti ponds -->
+             <!-- /.tab-pane pedrotti ponds -->
 
             <!-- ====== ROCK CREEK LAKE ====== -->
 
